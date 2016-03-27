@@ -1,0 +1,20 @@
+<!-- we should write less ruby code in here, the logic resides in the conroller -->
+<h1>Greetings, <%= @name %></h1>
+<p>The time now is <%= formatted_time(@time) %></p> <!-- this calls formatted_time() method, whitch we created,
+                                                         from the greeter_helper.rb file. This method is available
+                                                         to all view files of the project -->
+
+<!-- to view how many times the page viewed     -->
+<!-- this is not working because we can't store
+     values in controller's instance variables
+     (@times_displayed) in between REQUESTS     -->
+<!-- every new request is going to create a new instance variable-->
+<p>This page has been viewed <%= @times_displayed %> time(s)</p> 
+
+<!-- using some built-in helpers -->
+<!-- link_to name, path -->
+<p> <%= link_to "Google", "http://www.google.com/ncr" %> </p> <!-- this is the usage with regular string 
+                                                                   (web address) -->
+<p> <%= link_to "goodbye", greeter_goodbye_path %> </p> <!-- this is the usage with routes (remember to add _path 
+														     for relative path and _url for full path) with route 
+														     prefix -> we got from "$ rake routes" cmd -->
