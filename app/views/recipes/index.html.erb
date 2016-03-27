@@ -1,0 +1,15 @@
+<h1>Searching for: <%= @search_term %></h1>
+<table border="1" border-collapse=collapse>
+	<tr>
+		<th>Image</th>
+		<th>Publisher</th>
+		<th>Describtion</th>
+	</tr>
+	<% @recipes.each do |recipe| %>
+	<tr class=<%= cycle('even', 'odd') %>>
+		<td><%= image_tag(recipe["image_url"]) %></td>
+		<td><%= recipe["publisher"] %></td>
+		<td><%= recipe["publisher_url"] %></td>
+	</tr>
+	<% end %>
+</table>
